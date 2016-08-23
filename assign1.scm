@@ -12,6 +12,21 @@
         )
     )
 
+
+(define (min5 a b c d e)
+    (define (less x y) 
+        (if (< x y)
+            x
+            y
+        )
+    )
+    (less (less (less a b) c) (less d e))
+    )
+
+
+
+
+
 (define (run1)
     )
 
