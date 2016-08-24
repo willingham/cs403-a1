@@ -18,7 +18,35 @@
             the second argument it is given if the first argument 
             evaluates to false.  By contrast, the 'my-and' function
             evaluates both arguments given to it, regardless of the 
-            first's truthfulness.")
+            first's truthfulness.
+            
+            If there are side effects of the second argument the 'and'
+            function will not trigger those side effects whereas the 
+            'my-and' function will.  
+
+            Take the following function, isTrue, for example:
+
+            (define (isTrue) (
+                (println 'Yes, it's true!')
+                #t
+                )
+            
+            The following statement using the 'and' function will
+            evaluate to false, and won't execute the above code.
+
+            > (inspect (and #f (isTrue)))
+
+            The following statement using the 'my-and'
+            function will evaluate to #f as well, but by contrast,
+            the above 'isTrue' code will be executed.
+
+            > (inspect (my-and #f (isTrue)))
+
+            Thus the two functions can behave differently under
+            certain conditions."
+            
+
+            ")
     )
 
 (define (min5 a b c d e)
