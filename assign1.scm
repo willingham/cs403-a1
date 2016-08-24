@@ -12,6 +12,14 @@
         )
     )
 
+(define (and1) 
+    (println "
+            According to the book, the 'and' function doesn't evaluate
+            the second argument it is given if the first argument 
+            evaluates to false.  By contrast, the 'my-and' function
+            evaluates both arguments given to it, regardless of the 
+            first's truthfulness.")
+    )
 
 (define (min5 a b c d e)
     (define (less x y) 
@@ -22,7 +30,6 @@
     )
     (less (less (less a b) c) (less d e))
     )
-
 
 
 
