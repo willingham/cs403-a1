@@ -43,7 +43,7 @@
             > (inspect (my-and #f (isTrue)))
 
             Thus the two functions can behave differently under
-            certain conditions."
+            certain conditions.
             
 
             ")
