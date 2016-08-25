@@ -53,8 +53,21 @@
     (less (less (less a b) c) (less d e))
     )
 
-
-
+(define (cym x)
+    (define pi 3.14159265358979323846)
+    (define (cyan) 
+        (int (* (sin (+ (/ (* pi x) 200) (/ pi 2))) 255))
+    )
+    (define (yellow)
+        (int (* (+ (sin (+ (/ (* pi x) 100) pi)) 1) 255))
+    )
+    (define (magenta)
+        (int (* (/ (+ (sin (+ (* (/ x 100) (* (/ 3 2)  pi)) (/ pi 2))) 1) 2) 255))
+    )
+    (println (fmt "%02X" (cyan)))
+    (println (fmt "%02X" (yellow)))
+    (println (fmt "%02X" (magenta)))
+    )
 
 (define (run1)
     )
