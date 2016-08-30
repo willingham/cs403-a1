@@ -44,13 +44,13 @@
     )
 
 (define (min5 a b c d e)
-    (define (less x y) 
+    (define (l x y) 
         (if (< x y)
             x
             y
         )
     )
-    (less (less (less a b) c) (less d e))
+    (l (l (l a b) c) (l d e))
     )
 
 (define (cym x)
@@ -98,3 +98,4 @@
     )
 
 (println "assignment 1 loaded!")
+(set! __included_assign1.scm #f)
