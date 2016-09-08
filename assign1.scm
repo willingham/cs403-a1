@@ -67,6 +67,37 @@
     (string+ (fmt "%02X" (cyan)) (fmt "%02X" (yellow)) (fmt "%02X" (magenta)))
     )
 
+(define (root5 x)
+    )
+
+(define (bico x y)
+    )
+
+(define (curry f a)
+    (lambda (b) 
+        (lambda (c) 
+            (lambda (d)
+                (+ a b c d)
+                )
+            )
+        )
+    )
+
+(define (zorp i f)
+    )
+
+(define (egypt/ x y)
+    )
+
+(define (mystery a b c d)
+    )
+
+(define (ramanujan x)
+    )
+
+
+
+
 (define (run1)
     )
 
