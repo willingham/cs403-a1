@@ -1,0 +1,11 @@
+(define (min5 a b c d e)
+    (define (l x y) 
+        (if (< x y)
+            x
+            y
+        )
+    )
+    (l (l (l a b) c) (l d e))
+    )
+
+
