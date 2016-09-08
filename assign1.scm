@@ -77,13 +77,19 @@
     (lambda (b) 
         (lambda (c) 
             (lambda (d)
-                (+ a b c d)
+                (f a b c d)
                 )
             )
         )
     )
 
 (define (zorp i f)
+    )
+
+(define (double x) 
+    )
+
+(define (halve x)
     )
 
 (define (egypt/ x y)
