@@ -108,9 +108,20 @@
     )
 
 (define (run2)
+    (inspect (min5 1 2 3 4 5))
+    (inspect (min5 2 1 3 4 5))
+    (inspect (min5 2 3 1 4 5))
+    (inspect (min5 2 3 4 1 5))
+    (inspect (min5 2 3 4 5 1))
     )
 
 (define (run3)
+    (inspect (cym 1))
+    (println "[it should be ]")
+    (inspect (cym 25))
+    (inspect (cym 50))
+    (inspect (cym 75))
+    (inspect (cym 100))
     )
 
 (define (run4)
