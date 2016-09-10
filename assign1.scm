@@ -92,7 +92,7 @@
 
 (define (halve x c t)
     (cond 
-        ( (< (- x c) 0)
+        ( (<= (- x c) 0)
             t
             )
         ( (> (double (double c)) x)
