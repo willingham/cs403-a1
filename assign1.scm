@@ -87,9 +87,21 @@
     )
 
 (define (double x) 
+    (+ x x)
     )
 
-(define (halve x)
+(define (halve x c t)
+    (cond 
+        ( (< (- x c) 0)
+            t
+            )
+        ( (> (double (double c)) x)
+            (halve (- x (double c)) 1 (+ t c))
+            )
+        ( (< (double c) x)
+            (halve x (double c) t)
+            )
+        )
     )
 
 (define (egypt/ x y)
