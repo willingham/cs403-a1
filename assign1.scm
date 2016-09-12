@@ -12,17 +12,17 @@
         )
     )
 
-(define (and1) 
+(define (and1)
     (println "
             According to the book, the 'and' function doesn't evaluate
-            the second argument it is given if the first argument 
+            the second argument it is given if the first argument
             evaluates to false.  By contrast, the 'my-and' function
-            evaluates both arguments given to it, regardless of the 
+            evaluates both arguments given to it, regardless of the
             first's truthfulness.
-            
+
             If there are side effects of the second argument the 'and'
-            function will not trigger those side effects whereas the 
-            'my-and' function will.  
+            function will not trigger those side effects whereas the
+            'my-and' function will.
 
             The following statement using the 'and' function will
             evaluate to false, and won't evaluate the second
@@ -31,20 +31,20 @@
             > (inspect (and #f (isTrue)))
 
             The following statement using the 'my-and'
-            function will, by contrast, evaluate the second 
+            function will, by contrast, evaluate the second
             expression.
 
             > (inspect (my-and #f (isTrue)))
 
             Thus the two functions can behave differently under
             certain conditions.
-            
+
 
             ")
     )
 
 (define (min5 a b c d e)
-    (define (l x y) 
+    (define (l x y)
         (if (< x y)
             x
             y
@@ -55,7 +55,7 @@
 
 (define (cym x)
     (define pi 3.14159265358979323846)
-    (define (cyan) 
+    (define (cyan)
         (int (* (sin (+ (/ (* pi x) 200) (/ pi 2))) 255))
     )
     (define (yellow)
@@ -74,8 +74,8 @@
     )
 
 (define (curry f a)
-    (lambda (b) 
-        (lambda (c) 
+    (lambda (b)
+        (lambda (c)
             (lambda (d)
                 (f a b c d)
                 )
@@ -86,25 +86,49 @@
 (define (zorp i f)
     )
 
-(define (double x) 
+(define (double x)
     (+ x x)
     )
 
-(define (halve x c t)
-    (cond 
-        ( (<= (- x c) 0)
-            t
-            )
-        ( (> (double (double c)) x)
-            (halve (- x (double c)) 1 (+ t c))
-            )
-        ( (< (double c) x)
-            (halve x (double c) t)
+(define (halve x)
+    (define (worker x c t)
+        (cond
+            ( (<= (- x c) 0)
+                t
+                )
+            ( (> (double (double c)) x)
+                (worker (- x (double c)) 1 (+ t c))
+                )
+            ( (< (double c) x)
+                (worker x (double c) t)
+                )
             )
         )
+        (worker x 1 0)
     )
 
+
 (define (egypt/ x y)
+    (define (egypt a b c d e)
+        (cond
+            ( (and (= e 1) (< a 1))
+                d
+                )
+            ( (and (= e 0) (< b c))
+                (egypt (double a) (double b) c d e)
+                )
+            ( (and (= e 0) (>= b c))
+                (egypt a b c d 1)
+                )
+            ( (and (= e 1) (<= b c))
+                (egypt (halve a) (halve b) (- c b) (+ d a) e)
+                )
+            ( (and (= e 1) (> b c))
+                (egypt (halve a) (halve b) c d e)
+                )
+            )
+        )
+        (egypt 1 y x 0 0)
     )
 
 (define (mystery a b c d)
