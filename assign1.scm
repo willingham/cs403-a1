@@ -107,7 +107,6 @@
         (worker x 1 0)
     )
 
-
 (define (egypt/ x y)
     (define (egypt a b c d e)
         (cond
