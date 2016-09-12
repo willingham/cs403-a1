@@ -153,11 +153,15 @@
 
 (define (run3)
     (inspect (cym 1))
-    (println "[it should be ]")
+    (println "    [it should be #FEF6FE]")
     (inspect (cym 25))
+    (println "    [it should be #EB4AB0]")
     (inspect (cym 50))
+    (println "    [it should be #B40025]")
     (inspect (cym 75))
+    (println "    [it should be #614A09]")
     (inspect (cym 100))
+    (println "    [it should be #00FF7F]")
     )
 
 (define (run4)
@@ -173,6 +177,13 @@
     )
 
 (define (run8)
+    (inspect (egypt/ 1960 56))
+    (println "    [it should be 35]")
+    (inspect (egypt/ 15 3))
+    (println "    [it should be 5]")
+    (inspect (egypt/ 10 4))
+    (println "    [it should be 2]")
+ 
     )
 
 (define (run9)
