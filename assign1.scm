@@ -149,7 +149,15 @@
 (define (mystery a b c d)
     )
 
+(define (iramanujan depth curDepth)
+    (if (> curDepth depth)
+        0
+        (sqrt (+ (+ 6 curDepth) (* (iramanujan depth (+ curDepth 1)) (+ 2 curDepth))))
+        )
+    )
+
 (define (ramanujan x)
+    (iramanujan x 0 )
     )
 
 
@@ -205,6 +213,7 @@
     )
 
 (define (run10)
+    (inspect (ramanujan 1))
     )
 
 (println "assignment 1 loaded!")
