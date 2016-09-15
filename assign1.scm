@@ -81,7 +81,11 @@
 	
     )
 
-(define (bico x y)
+(define (bico i j)
+    (if (or (= j 0) (= i j))
+        1
+        (+ (bico (- i 1) (- j 1)) (bico (- i 1) j))
+        )
     )
 
 (define (curry f a)
