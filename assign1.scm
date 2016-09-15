@@ -150,7 +150,15 @@
         (egypt 1 y x 0 0)
     )
 
-(define (mystery a b c d)
+(define (mystery numTerms augend f1 f2)
+    (define (imystery depth value)
+        (if (= depth 0)
+            value
+            (imystery (- depth 1) (/ (f1 depth) (+ (f2 depth) value)))
+            )
+        )
+    (+ augend (imystery (- numTerms 1) (/ (f1 numTerms) (f2 numTerms))))
+    
     )
 
 (define (iramanujan depth curDepth)
