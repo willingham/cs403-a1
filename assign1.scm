@@ -68,6 +68,17 @@
     )
 
 (define (root5 x)
+    (define tol 0.0001)
+    (define (avg x y) 
+        (/ (+ x y) 2.0)
+        )
+   	(define (closeEnough x y)
+        (< (abs (- x y)) tol)
+        )
+    (define (ad f) ; average damp
+  		(lambda (x) (avg x (f x)))
+		)
+	
     )
 
 (define (bico x y)
@@ -84,6 +95,11 @@
     )
 
 (define (zorp i f)
+    (if (< i 3)
+        (f i)
+        (+ (zorp (- i 1) f) (/ (expt (- (zorp (- i 1) f) (zorp (- i 2) f)) 2)
+                               (+ (- (zorp (- i 3) f) (* 2 (zorp (- i 2) f))) (zorp (- i 1) f))))
+        )
     )
 
 (define (double x)
