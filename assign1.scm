@@ -78,7 +78,16 @@
     (define (ad f) ; average damp
   		(lambda (x) (avg x (f x)))
 		)
-	
+    (define (fp f start)
+        (define (ifp number)
+            (if (closeEnough number (f number))
+                (f number)
+                (ifp (f number))
+                )
+            )
+        (ifp start)
+        )
+    (fp (ad (ad (lambda (y) (/ x (expt y 4))))) 1.5) 
     )
 
 (define (bico i j)
