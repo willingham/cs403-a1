@@ -69,7 +69,7 @@
 
 (define (root5 x)
     (define tol 0.0001)
-    (define (avg x y) 
+    (define (avg x y)
         (/ (+ x y) 2.0)
         )
    	(define (closeEnough x y)
@@ -87,7 +87,7 @@
             )
         (ifp start)
         )
-    (fp (ad (ad (lambda (y) (/ x (expt y 4))))) 1.5) 
+    (fp (ad (ad (lambda (y) (/ x (expt y 4))))) 1.5)
     )
 
 (define (bico i j)
@@ -108,10 +108,19 @@
     )
 
 (define (zorp i f)
+    (define (zorp-iter iM3 iM2 iM1 i  max)
+        (if (= i max)
+            iM1
+            (zorp-iter iM2 iM1
+                  (+ iM1 (/ (expt (- iM1 iM2) 2)
+                         (+ (- iM3 (* 2 iM2)) iM1)))
+                  (+ i 1) max)
+            )
+
+        )
     (if (< i 3)
         (f i)
-        (+ (zorp (- i 1) f) (/ (expt (- (zorp (- i 1) f) (zorp (- i 2) f)) 2)
-                               (+ (- (zorp (- i 3) f) (* 2 (zorp (- i 2) f))) (zorp (- i 1) f))))
+        (zorp-iter (f 0) (f 1) (f 2) 2 i)
         )
     )
 
@@ -167,18 +176,21 @@
             )
         )
     (+ augend (imystery (- numTerms 1) (/ (f1 numTerms) (f2 numTerms))))
-    
+
     )
 
 (define (iramanujan depth curDepth)
-    (if (> curDepth depth)
-        0
-        (sqrt (+ (+ 6 curDepth) (* (iramanujan depth (+ curDepth 1)) (+ 2 curDepth))))
-        )
+
     )
 
 (define (ramanujan x)
-    (iramanujan x 0 )
+    (define (ramanujan-support depth curDepth)
+        (if (> curDepth depth)
+            0
+            (sqrt (+ (+ 6 curDepth) (* (ramanujan-support depth (+ curDepth 1)) (+ 2 curDepth))))
+            )
+        )
+    (ramanujan-support x 0 )
     )
 
 
@@ -227,7 +239,7 @@
     (println "    [it should be 5]")
     (inspect (egypt/ 10 4))
     (println "    [it should be 2]")
- 
+
     )
 
 (define (run9)
